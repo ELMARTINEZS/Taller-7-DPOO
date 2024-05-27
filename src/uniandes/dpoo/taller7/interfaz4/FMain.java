@@ -19,7 +19,7 @@ public class FMain extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		setLayout(new BorderLayout());
-		this.arriba = new PSizeDif();
+		this.arriba = new PSizeDif(this);
 		this.add(arriba,BorderLayout.NORTH);
 		this.derecha = new POptions();
 		this.add(derecha,BorderLayout.EAST);
@@ -29,6 +29,21 @@ public class FMain extends JFrame {
 		this.add(abajo,BorderLayout.SOUTH);
 		
 	}
+	
+	public void nuevoJuego() {
+        this.tablero = new Tablero(size);
+        this.centro.setTamaño(size);
+    }
+
+    public void reiniciarJuego() {
+        this.tablero.reiniciar();
+        this.centro.repaint();
+    }
+    
+    public Tablero getTablero() {
+        return tablero;
+    }
+    
 	public static void main(String[] args) {
 		new FMain();
 	}
